@@ -1,5 +1,5 @@
 const User = require('../models/user')
-
+//new comment
 exports.signup=(req,res)=>{
     
     User.findOne({
