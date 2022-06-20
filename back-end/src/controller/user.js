@@ -1,6 +1,6 @@
 const User = require('../models/user')
 //new comment
-//another comment
+//another comment 
 exports.signup=(req,res)=>{
     
     User.findOne({
@@ -16,18 +16,19 @@ exports.signup=(req,res)=>{
             email,
             password
         } = req.body;
-        const_user = new User({ firstName, lastName, email,password,userName: Math.random().toString()});
+        const _user = new User({ firstName, lastName, email, password,userName: Math.random().toString()});
 
         _user.save((error, data)=>{
             if(error){
                 return res.status(400).json({
-                    message: 'Something went wrong'
+                    // message: 'Something went wrong'
+                    error
                 });
             }
             if(data){
                 return res.status(201).json({
-                    // user:data
-                    message : 'User created successfully'
+                    user:data
+                    // message : 'User created successfully'
                 })
             }
         });

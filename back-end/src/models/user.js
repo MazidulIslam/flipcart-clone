@@ -49,7 +49,7 @@ userSchema.virtual('password').set(function(password){
 });
 userSchema.methods = {
     authenticate: function(){
-        return bcrypt.compare(password, this.hash_password);
+        return bcrypt.compareSync(password, this.hash_password);
     }
 }
 
